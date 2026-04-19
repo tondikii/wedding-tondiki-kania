@@ -1,93 +1,150 @@
 :root {
-    --primary-font-color: '#212529';
-    --bg-color: #f8f9fa;
+  /* Primary Greens */
+  --color-primary: #2d6a2f; /* deep leaf green - main headings, logo */
+  --color-secondary: #3e8e41; /* forest green - buttons, accents */
+  --color-sage: #7fb87f; /* sage green - muted text, borders */
+  --color-mist: #a8d5a2; /* mist green - hover states, light accents */
 
-    --fontSize-heading-lg: 3rem;
-    --fontSize-heading-base: 2.8rem;
-    --fontSize-text-base: 1rem;
+  /* Backgrounds */
+  --color-bg-white: #fafaf5; /* white rose - section backgrounds */
+  --color-bg-cream: #f3efdf; /* petal cream - card surfaces, alternating sections */
+  --color-bg-frost: #eaf0e6; /* frost green - subtle section tint */
+  --color-bg-soft: #d4edda; /* soft mint - dividers, light fills */
 
-    --sacramento: Sacramento, cursive;
-    --arabic: 'Noto Naskh Arabic', serif;
+  /* Text */
+  --color-text-heading: #2d6a2f; /* heading text */
+  --color-text-muted: #5a6a5a; /* muted/secondary text */
 
-    --shadow-md: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Gold Accents */
+  --color-gold: #c5a882; /* warm gold - decorative details */
+  --color-gold-dark: #8b7355; /* antique gold - borders, ornaments */
 
-    --transition-small: all .3s ease;
+  /* Overlays */
+  --color-overlay: rgba(45, 106, 47, 0.08); /* subtle green overlay */
+  --color-overlay-dark: rgba(45, 106, 47, 0.75); /* welcome/hero overlay */
+
+  --primary-font-color: "#212529";
+  --bg-color: #f8f9fa;
+
+  --fontSize-heading-lg: 3rem;
+  --fontSize-heading-base: 2.8rem;
+  --fontSize-text-base: 1rem;
+
+  --sacramento: Sacramento, cursive;
+  --arabic: "Noto Naskh Arabic", serif;
+
+  --shadow-md: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  --transition-small: all 0.3s ease;
 }
 
 html {
-    scroll-behavior: smooth;
-    scrollbar-width: none !important;
+  scroll-behavior: smooth;
+  scrollbar-width: none !important;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
-    color: var(--primary-font-color);
-    overflow-y: hidden;
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--color-text-muted);
+  overflow-y: hidden;
 }
 
 body.active {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 p {
-    line-height: 1.7rem;
+  line-height: 1.6rem;
 }
 
 .audio button {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    cursor: pointer;
-    transform: translateX(200%);
-    transition: 1.5s transform ease;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
+  transform: translateX(200%);
+  transition: 1.5s transform ease;
+}
+
+.audio button:hover {
+  background-color: var(--color-primary);
 }
 
 .audio button.show {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .audio button.active {
-    animation: rotate 3s linear infinite;
+  animation: rotate 3s linear infinite;
 }
 
-
 @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes upAndDown {
-    0%, 100% {
-        transform: translateY(-0.8rem);
-    }
-    50% {
-        transform: translateY(0.8rem);
-    }
+  0%,
+  100% {
+    transform: translateY(-0.8rem);
+  }
+  50% {
+    transform: translateY(0.8rem);
+  }
+}
+
+/* Scrollbar styling */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-cream);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--color-mist);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--color-bg-soft);
+  color: var(--color-primary);
+}
+
+::-moz-selection {
+  background-color: var(--color-bg-soft);
+  color: var(--color-primary);
 }

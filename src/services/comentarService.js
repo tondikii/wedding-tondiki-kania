@@ -1,40 +1,39 @@
 import {data} from "../assets/data/data.js";
 
 export const comentarService = {
-    getComentar: async function () {
-        try {
-            const response = await fetch(data.api);
-            return await response.json();
-        } catch (error) {
-            return {error: error && error.message};
-        }
-    },
+  getComentar: async function () {
+    try {
+      const response = await fetch(data.api);
+      if (!response.ok) throw new Error("Network response was not ok");
 
-    addComentar: async function ({id, name, status, message, date, color}) {
-        const comentar = {
-            id: id,
-            name: name,
-            status: status,
-            message: message,
-            date: date,
-            color: color,
-        };
+      // Simpan hasil json ke variabel agar bisa di-log DAN di-return
+      const result = await response.json();
 
-        try {
-            const response = await fetch(data.api, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(comentar),
-            });
+      return result;
+    } catch (error) {
+      console.error("Get error:", error);
+      return {error: error.message, comentar: []};
+    }
+  },
 
-            return await response.json();
+  addComentar: async function (comentarData) {
+    try {
+      const response = await fetch(data.api, {
+        method: "POST",
+        // JANGAN gunakan no-cors jika ingin membaca balasan/response
+        // Gunakan text/plain untuk menghindari masalah CORS Preflight di Apps Script
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(comentarData),
+      });
 
-        } catch (error) {
-            console.error('Post error:', error);
-            return {error: error.message};
-        }
-    },
+      const result = await response.json();
+
+      return result;
+    } catch (error) {
+      console.error("Post error:", error);
+      return {error: error.message};
+    }
+  },
 };

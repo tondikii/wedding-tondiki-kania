@@ -1,50 +1,70 @@
 .time {
-    width: 100%;
-    min-height: 100vh;
-    text-align: center;
-    padding: 10rem 8rem;
-    position: relative;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  padding: 6rem 8rem;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-frost) 0%,
+    var(--color-bg-white) 100%
+  );
 }
 
 .time h2 {
-    font-family: var(--sacramento);
-    font-size: var(--fontSize-heading-base);
-    font-weight: 400;
+  font-family: var(--sacramento);
+  font-size: var(--fontSize-heading-base);
+  font-weight: 400;
+  color: var(--color-primary);
 }
 
 .time div:nth-of-type(1) {
-    margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .time div:nth-of-type(1) div h3 {
-    font-family: var(--sacramento);
-    font-size: var(--fontSize-heading-lg);
-    font-weight: 400;
+  font-family: var(--sacramento);
+  font-size: var(--fontSize-heading-lg);
+  font-weight: 400;
+  color: var(--color-primary);
 }
 
-.time div:nth-of-type(1) div:nth-of-type(2){
-    margin-top: 2rem;
+.time div:nth-of-type(1) div p {
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.time div:nth-of-type(1) div:nth-of-type(2) {
+  margin-top: 1.5rem;
 }
 
 .time a {
-    padding: 0.5rem 1rem;
-    color: #fff;
-    font-size: 1rem;
-    background-color: #000;
-    margin: 2rem auto 1rem;
-    border-radius: 20px;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  padding: 0.7rem 2rem;
+  color: #fff;
+  font-size: 1rem;
+  background-color: var(--color-secondary);
+  margin: 1.5rem auto 0.8rem;
+  border-radius: 25px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: var(--transition-small);
+}
+
+.time a:hover {
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 15px rgba(45, 106, 47, 0.2);
+  transform: translateY(-2px);
 }
 
 .time a i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .time a + p + i {
-    right: 8rem;
-    top: 22rem;
+  right: 8rem;
+  top: 22rem;
 }

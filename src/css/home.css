@@ -1,108 +1,145 @@
 .home {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    background-color: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    transition: all 2s ease;
-    transform: translateY(-100%);
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: var(--color-bg-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  transition: all 2s ease;
+  transform: translateY(-100%);
 }
 
 .home.active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .home h2 {
-    font-size: 2.4rem;
-    font-family: var(--sacramento);
-    font-weight: 400;
+  font-size: 2.4rem;
+  font-family: var(--sacramento);
+  font-weight: 400;
+  color: var(--color-primary);
 }
 
-.home figure {
-    margin: 2rem auto 0;
+.home figcaption {
+  color: var(--color-primary);
 }
 
 .home figure img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: var(--shadow-md);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
 }
 
 .home figure figcaption {
-    margin: 0 0 0.5rem;
-    font-weight: 400;
-    font-family: var(--sacramento);
-    font-size: var(--fontSize-heading-lg);
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+  font-family: var(--sacramento);
+  font-size: var(--fontSize-heading-lg);
 }
 
 .home h3 {
-    font-weight: 500;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-top: 0.8rem;
 }
 
 .home .home-time {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
 }
 
 .home .home-time div {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #000;
-    border-radius: 8px;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid var(--color-mist);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 127, 0.08) 0%,
+    rgba(168, 213, 162, 0.05) 100%
+  );
+  color: var(--color-primary);
+  padding: 0.75rem;
+  transition: var(--transition-small);
+}
+
+.home .home-time div:hover {
+  border-color: var(--color-sage);
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 127, 0.15) 0%,
+    rgba(168, 213, 162, 0.1) 100%
+  );
+  box-shadow: 0 4px 15px rgba(45, 106, 47, 0.1);
 }
 
 .home .home-time div p {
-    font-size: 0.8rem;
-    line-height: normal;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .home .home-time div p span {
-    font-size: 0.6rem;
-    margin-top: 0.2rem;
+  color: var(--color-sage);
+  font-size: 0.55rem;
+  font-weight: 500;
+  margin-top: 0.2rem;
+  display: block;
 }
 
 .home a {
-    padding: 0.5rem 1rem;
-    color: #fff;
-    font-size: 1rem;
-    background-color: #000;
-    margin: 1rem auto;
-    border-radius: 20px;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  padding: 0.7rem 2rem;
+  color: #fff;
+  font-size: 1rem;
+  background-color: var(--color-secondary);
+  margin: 2rem auto;
+  border-radius: 25px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: var(--transition-small);
+}
+
+.home a:hover {
+  background-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(45, 106, 47, 0.2);
+  transform: translateY(-2px);
 }
 
 .home a i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .home .scroll_down {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .home svg {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -14rem;
-    z-index: -10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14rem;
+  z-index: -10;
 }

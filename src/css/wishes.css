@@ -1,0 +1,279 @@
+.wishes {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 8rem;
+  background-color: var(--color-bg-white);
+  position: relative;
+  text-align: center;
+}
+
+.wishes div:nth-of-type(1) h2,
+.wishes div:nth-of-type(2) h2 {
+  font-size: var(--fontSize-heading-base);
+  font-family: var(--sacramento);
+  font-weight: 400;
+  color: var(--color-primary);
+}
+
+.wishes div:nth-of-type(1) > div {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.wishes div:nth-of-type(1) > div figure {
+  width: 22rem;
+  text-align: center;
+  border-radius: 15px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 12px rgba(45, 106, 47, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 127, 0.05) 0%,
+    rgba(168, 213, 162, 0.03) 100%
+  );
+  transition: var(--transition-small);
+}
+
+.wishes div:nth-of-type(1) > div figure:hover {
+  box-shadow: 0 6px 20px rgba(45, 106, 47, 0.12);
+  transform: translateY(-2px);
+}
+
+.wishes div:nth-of-type(1) > div figure img {
+  width: 10rem;
+  height: 3rem;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+}
+
+.wishes div:nth-of-type(1) > div figure figcaption {
+  line-height: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(1) > div figure button {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-primary);
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-small);
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(1) > div figure button:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.wishes div:nth-of-type(2) {
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 12px rgba(45, 106, 47, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 127, 0.03) 0%,
+    rgba(168, 213, 162, 0.02) 100%
+  );
+}
+
+.wishes div:nth-of-type(2) > form {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.wishes div:nth-of-type(2) > form label {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 4px;
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(2) > form input,
+.wishes div:nth-of-type(2) > form select,
+.wishes div:nth-of-type(2) > form textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-mist);
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(2) > form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(2) > form input:focus,
+.wishes div:nth-of-type(2) > form select:focus,
+.wishes div:nth-of-type(2) > form textarea:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(62, 142, 65, 0.1);
+}
+
+.wishes div:nth-of-type(2) > form textarea {
+  min-height: 6rem;
+}
+
+.wishes div:nth-of-type(2) > form button {
+  width: 100%;
+  color: #fff;
+  background-color: var(--color-secondary);
+  padding: 0.6rem 0;
+  border-radius: 5px;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-small);
+}
+
+.wishes div:nth-of-type(2) > form button:hover {
+  background-color: var(--color-primary);
+}
+
+.wishes div:nth-of-type(3) {
+  margin-top: 3rem;
+  box-shadow: 0 2px 12px rgba(45, 106, 47, 0.08);
+  border-radius: 15px;
+  /* Perkecil padding kiri-kanan agar lebih luas, atau biarkan jika ingin ada jarak dikit */
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 127, 0.03) 0%,
+    rgba(168, 213, 162, 0.02) 100%
+  );
+  /* Tambahkan ini agar aman */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Bagian UL */
+.wishes div:nth-of-type(3) ul {
+  margin-top: 1.4rem;
+  width: 100%; /* Pastikan 100% */
+  display: flex;
+  align-items: stretch; /* Ubah dari start ke stretch agar anak-anaknya full width */
+  justify-content: start;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 26rem;
+  max-height: 40rem; /* Saya tambahkan dikit biar lebih lega */
+  overflow-y: auto; /* Ubah ke auto agar bisa di-scroll jika kepanjangan */
+  padding: 0; /* Pastikan tidak ada padding bawaan */
+}
+
+/* Bagian LI (Tiap Kotak Komentar) */
+.wishes div:nth-of-type(3) ul li {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+  padding: 1.2rem;
+  background-color: var(--color-bg-frost);
+  border-left: 4px solid var(--color-secondary);
+  border-radius: 8px;
+  width: 100%; /* Kunci agar full width */
+  box-sizing: border-box; /* Agar padding tidak merusak lebar */
+  text-align: left; /* Pastikan teks rata kiri */
+}
+
+.wishes div:nth-of-type(3) ul li div:nth-of-type(1) {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  background-color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* Bagian pembungkus teks di dalam LI */
+.wishes div:nth-of-type(3) ul li div:nth-of-type(2) {
+  flex: 1; /* Agar div teks mengambil sisa ruang yang ada */
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  box-shadow: none;
+  background: none; /* Pastikan tidak ada background tambahan */
+}
+
+.wishes div:nth-of-type(3) ul li div:nth-of-type(2) h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(3) ul li div:nth-of-type(2) p:nth-of-type(1) {
+  font-size: 0.6rem;
+  font-weight: 300;
+  line-height: 1rem;
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(3) ul li div:nth-of-type(2) p:nth-of-type(2) {
+  margin-top: 0.4rem;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.wishes div:nth-of-type(3) .button-grup {
+  margin: 1rem auto 0;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  background-color: #fff;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishes div:nth-of-type(3) .button-grup > span {
+  background-color: var(--color-sage);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishes div:nth-of-type(3) .button-grup button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+}
+
+.wishes svg:nth-of-type(1) {
+  position: absolute;
+  z-index: -10;
+  top: -12rem;
+  left: 0;
+  right: 0;
+}
+
+.wishes svg:nth-of-type(2) {
+  position: absolute;
+  z-index: -10;
+  left: 0;
+  right: 0;
+  bottom: -15rem;
+}

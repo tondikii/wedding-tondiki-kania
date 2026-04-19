@@ -1,45 +1,53 @@
 footer {
-    margin-top: 6rem;
-    width: 100%;
-    padding: 4rem 8rem;
-    text-align: center;
+  margin-top: 4rem;
+  width: 100%;
+  padding: 3rem 8rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  color: #fff;
 }
 
 footer h2 {
-    font-size: var(--fontSize-heading-base);
-    font-family: var(--sacramento);
-    font-weight: 400;
-    margin-top: 1rem;
+  font-size: var(--fontSize-heading-base);
+  font-family: var(--sacramento);
+  font-weight: 400;
+  margin-top: 1rem;
+  color: #fff;
 }
 
 footer h4 {
-    font-size: 1.6rem;
-    font-family: var(--arabic);
-    font-weight: 400;
+  font-size: 1.6rem;
+  font-family: var(--arabic);
+  font-weight: 400;
+  color: #fff;
 }
 
 footer > div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #000;
-    margin-top: 1rem;
-    padding-top: 0.6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 1rem;
+  padding-top: 0.6rem;
 }
 
 footer > div p {
-    font-size: 0.6rem;
-}
-
-footer > div p span {
-    font-weight: bold;
+  font-size: 0.6rem;
+  color: #fff;
 }
 
 footer > div a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-size: 0.8rem;
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: var(--transition-small);
+}
+
+footer > div a:hover {
+  opacity: 0.8;
 }
