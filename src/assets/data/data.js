@@ -65,19 +65,19 @@ export const data = {
     },
     {
       id: 4,
-      image: "./src/assets/images/3.png",
+      image: "./src/assets/images/4.png",
     },
     {
       id: 5,
-      image: "./src/assets/images/3.png",
+      image: "./src/assets/images/5.png",
     },
     {
       id: 6,
-      image: "./src/assets/images/3.png",
+      image: "./src/assets/images/6.png",
     },
     {
       id: 7,
-      image: "./src/assets/images/3.png",
+      image: "./src/assets/images/7.png",
     },
   ],
 
