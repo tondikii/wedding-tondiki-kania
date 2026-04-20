@@ -63,10 +63,6 @@ export const data = {
       id: 3,
       image: "./src/assets/images/3.png",
     },
-    {
-      id: 4,
-      image: "./src/assets/images/4.png",
-    },
   ],
 
   bank: [
@@ -86,7 +82,7 @@ export const data = {
 
   audio: "./src/assets/audio/wedding.mp3",
 
-  api: "https://script.google.com/macros/s/AKfycbyTgvGToE9z-uLDE9T0mEXQT0lzyHMvJ1_vwp50icPdiLcpt3P0_xQT2fhOrb0HJQqZ/exec",
+  api: "https://script.google.com/macros/s/AKfycbxpEoa34zxFVaey8kr6yH-TWSmPH3_VeI1tnZH8iX8KIyHGi2bPa1RDSCO5EkRlFwga/exec",
 
   navbar: [
     {

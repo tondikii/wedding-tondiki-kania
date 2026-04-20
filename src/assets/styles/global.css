@@ -52,9 +52,16 @@ html {
 }
 
 body {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   color: var(--color-text-muted);
   overflow-y: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 body.active {

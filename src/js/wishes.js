@@ -6,20 +6,20 @@ import {
   renderElement,
 } from "../utils/helper.js";
 import {data} from "../assets/data/data.js";
-import {comentarService} from "../services/comentarService.js";
+import {commentsService} from "../services/commentsService.js";
 
 export const wishes = () => {
   // Gunakan ID agar langsung tepat sasaran
   const form = document.getElementById("comment-form");
   const buttonForm = document.getElementById("submit-button");
-  const peopleComentar = document.getElementById("comment-count");
-  const containerComentar = document.getElementById("comment-list");
+  const peopleComments = document.getElementById("comment-count");
+  const containerComments = document.getElementById("comment-list");
   const pageNumber = document.getElementById("page-number");
   const prevButton = document.getElementById("prev-btn");
   const nextButton = document.getElementById("next-btn");
 
   // State Management
-  let lengthComentar = 0;
+  let lengthComments = 0;
   let currentPage = 1;
   let itemsPerPage = 4;
   let startIndex = 0;
@@ -33,9 +33,8 @@ export const wishes = () => {
            </figure>`;
 
   const initialBank = () => {
-    // Bank ada di div pertama di dalam wishes
-    const wishesBank = wishesContainer.querySelector("div:first-of-type");
-    const containerBank = wishesBank.querySelector("div");
+    // ✅ Fix: gunakan ID yang sudah ada di HTML, bukan wishesContainer yang tidak terdefinisi
+    const containerBank = document.getElementById("bank-container");
 
     renderElement(data.bank, containerBank, listItemBank);
 
@@ -56,7 +55,7 @@ export const wishes = () => {
     });
   };
 
-  const listItemComentar = (data) => {
+  const listItemComments = (data) => {
     const name = formattedName(data.name);
     const newDate = formattedDate(data.date);
     let dateDisp = "";
@@ -81,35 +80,35 @@ export const wishes = () => {
                  </li>`;
   };
 
-  const initialComentar = async () => {
-    containerComentar.innerHTML = `<h1 style="font-size: 1rem; margin: auto">Loading...</h1>`;
-    peopleComentar.textContent = "Memuat...";
+  const initialComments = async () => {
+    containerComments.innerHTML = `<h1 style="font-size: 1rem; margin: auto">Loading...</h1>`;
+    peopleComments.textContent = "Memuat...";
     pageNumber.textContent = "..";
 
     try {
-      const response = await comentarService.getComentar();
-      const allComentar = response.comentar || [];
-      lengthComentar = allComentar.length;
+      const response = await commentsService.getComments();
+      const allComments = response.comments || [];
+      lengthComments = allComments.length;
 
-      const reversedData = [...allComentar].reverse();
+      const reversedData = [...allComments].reverse();
 
-      peopleComentar.textContent =
-        lengthComentar > 0
-          ? `${lengthComentar} Orang telah mengucapkan`
+      peopleComments.textContent =
+        lengthComments > 0
+          ? `${lengthComments} Orang telah mengucapkan`
           : `Belum ada yang mengucapkan`;
 
       pageNumber.textContent = "1";
 
       // Kosongkan loading sebelum render
-      containerComentar.innerHTML = "";
+      containerComments.innerHTML = "";
       renderElement(
         reversedData.slice(startIndex, endIndex),
-        containerComentar,
-        listItemComentar,
+        containerComments,
+        listItemComments,
       );
     } catch (error) {
       console.error("Initial load error:", error);
-      containerComentar.innerHTML = `<p style="margin: auto; color: red;">Gagal memuat komentar</p>`;
+      containerComments.innerHTML = `<p style="margin: auto; color: red;">Gagal memuat komentar</p>`;
     }
   };
 
@@ -118,7 +117,7 @@ export const wishes = () => {
     buttonForm.textContent = "Mengirim...";
     buttonForm.disabled = true;
 
-    const newComentar = {
+    const newComments = {
       id: generateRandomId(),
       name: e.target.name.value,
       status: e.target.status.value === "y" ? "Hadir" : "Tidak Hadir",
@@ -128,16 +127,16 @@ export const wishes = () => {
     };
 
     try {
-      const res = await comentarService.addComentar(newComentar);
+      const res = await commentsService.addComments(newComments);
 
       if (res.status === 200 || res.result === "success") {
-        lengthComentar++;
-        peopleComentar.textContent = `${lengthComentar} Orang telah mengucapkan`;
+        lengthComments++;
+        peopleComments.textContent = `${lengthComments} Orang telah mengucapkan`;
 
         // Optimistic UI: langsung tampilkan tanpa reload
-        containerComentar.insertAdjacentHTML(
+        containerComments.insertAdjacentHTML(
           "afterbegin",
-          listItemComentar(newComentar),
+          listItemComments(newComments),
         );
 
         form.reset();
@@ -154,21 +153,21 @@ export const wishes = () => {
   });
 
   const updatePageContent = async () => {
-    containerComentar.innerHTML =
+    containerComments.innerHTML =
       '<h1 style="font-size: 1rem; margin: auto">Loading...</h1>';
     pageNumber.textContent = "..";
     prevButton.disabled = true;
     nextButton.disabled = true;
 
     try {
-      const response = await comentarService.getComentar();
-      const allComentar = [...(response.comentar || [])].reverse();
+      const response = await commentsService.getComments();
+      const allComments = [...(response.comments || [])].reverse();
 
-      containerComentar.innerHTML = "";
+      containerComments.innerHTML = "";
       renderElement(
-        allComentar.slice(startIndex, endIndex),
-        containerComentar,
-        listItemComentar,
+        allComments.slice(startIndex, endIndex),
+        containerComments,
+        listItemComments,
       );
       pageNumber.textContent = currentPage.toString();
     } catch (error) {
@@ -180,7 +179,7 @@ export const wishes = () => {
   };
 
   nextButton.addEventListener("click", async () => {
-    if (endIndex < lengthComentar) {
+    if (endIndex < lengthComments) {
       currentPage++;
       startIndex = (currentPage - 1) * itemsPerPage;
       endIndex = startIndex + itemsPerPage;
@@ -198,6 +197,6 @@ export const wishes = () => {
   });
 
   // Jalankan inisialisasi
-  initialComentar();
+  initialComments();
   initialBank();
 };
